@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini RPG: Pixel Quest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'VT323', monospace;
+        font-size: 20px;
+        background-color: #1d112f;
+        background-image:
+          radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 20px),
+          radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 15px);
+        background-size: 350px 350px, 250px 250px;
+        background-position: 0 0, 130px 270px;
+        color: #f0f0f0;
+      }
+      .font-title {
+        font-family: 'Press Start 2P', cursive;
+      }
+      .text-shadow {
+        text-shadow: 2px 2px 0px #222;
+      }
+       .text-shadow-title {
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+      }
+      .pixel-border-inset {
+        border: 4px solid #000;
+        box-shadow: 
+          inset -3px -3px 0px 0px #3b1d54,
+          inset 3px 3px 0px 0px #ab82d4;
+      }
+      .pixel-border-outset {
+         border: 4px solid #000;
+         box-shadow: 4px 4px 0px #000;
+      }
+      .pixel-button {
+          font-family: 'Press Start 2P', cursive;
+          padding: 8px 16px;
+          text-transform: uppercase;
+          color: white;
+          background-color: #7b42b8;
+          border: 4px solid #000;
+          box-shadow: 4px 4px 0px #000;
+          transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+      }
+      .pixel-button:hover:not(:disabled) {
+          transform: translate(4px, 4px);
+          box-shadow: none;
+          background-color: #9c61de;
+      }
+      .pixel-button:disabled {
+          background-color: #6b6b6b;
+          color: #aaaaaa;
+          box-shadow: 4px 4px 0px #333;
+          cursor: not-allowed;
+          transform: none;
+      }
+      .pixel-card {
+        background-color: #4f336e;
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0px #000;
+        transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out, border-color 0.1s ease-in-out;
+      }
+      .pixel-card:hover:not(:disabled) {
+          transform: translate(4px, 4px);
+          box-shadow: none;
+          border-color: #ff8dd1; /* Pink highlight on hover */
+      }
+      .pixel-card:disabled {
+          background-color: #525252;
+          color: #aaaaaa;
+          box-shadow: 4px 4px 0px #222;
+          transform: none;
+          cursor: not-allowed;
+      }
+
+      /* Custom scrollbar for pixel look */
+      ::-webkit-scrollbar { width: 16px; }
+      ::-webkit-scrollbar-track { background: #3b1d54; border-left: 2px solid #000;}
+      ::-webkit-scrollbar-thumb { 
+        background: #9c61de; 
+        border: 2px solid #000;
+      }
+      ::-webkit-scrollbar-thumb:hover { background: #ab82d4; }
+      
+      /* Floating Text Animation */
+      @keyframes float-up-stay {
+        from {
+          transform: translate(-50%, 0);
+          opacity: 1;
+        }
+        to {
+          transform: translate(-50%, -60px);
+          opacity: 1;
+        }
+      }
+      .floating-text {
+        position: fixed;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 1.25rem; /* 20px */
+        font-weight: bold;
+        text-shadow: 2px 2px 0 #000;
+        z-index: 1000;
+        pointer-events: none;
+        animation: float-up-stay 1.5s ease-out forwards;
+        white-space: nowrap;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.525.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
